@@ -179,4 +179,71 @@ TEST(removeTest, invalid)
     EXPECT_EQ(cards.getCardsNumber(), toAdd.length());
 }
 
+TEST(getTest, invalid)
+{
+    EXPECT_EQ(1, 1);
+    Cards cards;
+    EXPECT_EQ(cards.getCardsNumber(), 0);
+
+    QList<QPair<QString, QString>> toAdd = {
+        QPair<QString, QString>("qwe", "asd"),
+        QPair<QString, QString>("gfegwerg", "3gf4h34h"),
+        QPair<QString, QString>("34g324g34g", "23f2f23df12h45j645")
+    };
+
+    for(QPair<QString, QString> pair : toAdd) {
+        cards.addCard(pair.first, pair.second);
+    }
+
+    ASSERT_EQ(cards.getCardsNumber(), toAdd.length());
+
+    try {
+        cards.getByCardIndex(-1);
+        FAIL() << "No error!"; // не было ошибки, а должна быть
+    } catch (std::range_error const & e) {
+        EXPECT_EQ(e.what(),std::string("Inavlid index!"));
+    } catch(...) {
+        FAIL() << "Invalid error!";
+    }
+
+    try {
+        cards.getByCardIndex(toAdd.length());
+        FAIL() << "No error!"; // не было ошибки, а должна быть
+    } catch (std::range_error const & e) {
+        EXPECT_EQ(e.what(),std::string("Inavlid index!"));
+    } catch(...) {
+        FAIL() << "Invalid error!";
+    }
+}
+
+TEST(checkTest, simple)
+{
+    EXPECT_EQ(1, 1);
+    Cards cards;
+    EXPECT_EQ(cards.getCardsNumber(), 0);
+
+    QList<QPair<QString, QString>> toAdd = {
+        QPair<QString, QString>("qwe", "asd"),
+        QPair<QString, QString>("gfegwerg", "3gf4h34h"),
+        QPair<QString, QString>("34g324g34g", "23f2f23df12h45j645")
+    };
+
+    for(QPair<QString, QString> pair : toAdd) {
+        cards.addCard(pair.first, pair.second);
+    }
+
+    ASSERT_EQ(cards.getCardsNumber(), toAdd.length());
+
+    cards.checkCards();
+}
+
+TEST(checkTest, empty)
+{
+    EXPECT_EQ(1, 1);
+    Cards cards;
+    EXPECT_EQ(cards.getCardsNumber(), 0);
+
+    cards.checkCards();
+}
+
 #endif // CARDS_TEST_H
