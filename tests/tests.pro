@@ -1,15 +1,9 @@
 include(gtest_dependency.pri)
 
 TEMPLATE = app
-CONFIG += console
+CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG += thread
-CONFIG += qt
-
-QT += core qml quick quickcontrols2
-
-QMAKE_CXXFLAGS += -Wall -Wextra -Werror -std=c++98
-QMAKE_CFLAGS += -Wall -Wextra -Werror
 
 # gcov
 QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage

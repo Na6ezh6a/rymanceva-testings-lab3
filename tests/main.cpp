@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <cards.h>
+#include "cards_test.h"
 
 int main(int argc, char *argv[])
 {
