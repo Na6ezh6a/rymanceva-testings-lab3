@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Card.qml</file>
+        <file>SideMenu.qml</file>
+        <file>images/plus-circular-button.svg</file>
+        <file>images/delete-button-svgrepo-com.svg</file>
+    </qresource>
+</RCC>
