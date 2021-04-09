@@ -31,11 +31,11 @@ signals:
 
 public slots:
     void addCard(QString mainText, QString backText); // добавить карточку в список
-    void removeCard(qint64 index); // удалить карточку из списка
+    void removeCard(int index); // удалить карточку из списка
     void checkCards(); // обновить карточки (вызвается из QML)
-    QList<QPair<QString, QString>> getCards(); // получить список карточек
-    QPair<QString, QString> getByCardIndex(qint64 index); // получить карточку по номеру
-    qint64 getCardsNumber(); // получить количество карточек
+    QList<QPair<QString, QString>> getCards() const; // получить список карточек
+    QPair<QString, QString> getByCardIndex(int index); // получить карточку по номеру
+    qint64 getCardsNumber() const; // получить количество карточек
 };
 
 #endif // CARDS_H

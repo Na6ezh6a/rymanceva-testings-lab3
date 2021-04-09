@@ -18,7 +18,7 @@ void Cards::updateCards() {
     emit clearCardsQml(); // удаляеми всё
 
     // добавляем заново
-    for(qint64 i = 0; i < this->cards.length(); i++) {
+    for(int i = 0; i < this->cards.length(); i++) {
         // emit создаёт сигнал для QML
         // параметры: основной текст, текст на задней стороне карточки, индекс
         emit addCardQml(this->cards[i].first, this->cards[i].second, i);
@@ -34,7 +34,7 @@ void Cards::addCard(QString mainText, QString backText) {
 }
 
 // удаление карточки по номеру
-void Cards::removeCard(qint64 index) {
+void Cards::removeCard(int index) {
     if(cards.length() == 0) return;
 
     if(index < 0 || index > this->cards.length() - 1) {
@@ -55,12 +55,12 @@ void Cards::checkCards() {
 }
 
 // получаем список карточек
-QList<QPair<QString, QString>> Cards::getCards() {
+QList<QPair<QString, QString>> Cards::getCards() const {
     return this->cards;
 }
 
 // получаем карточку по номеру
-QPair<QString, QString> Cards::getByCardIndex(qint64 index) {
+QPair<QString, QString> Cards::getByCardIndex(int index) {
     if(index < 0 || index > this->cards.length() - 1) {
         // неправильный индекс
         // throw "кидает" ошибку, которую можно обработать при помощи catch
@@ -71,6 +71,6 @@ QPair<QString, QString> Cards::getByCardIndex(qint64 index) {
 }
 
 // получаем кол-во карточек
-qint64 Cards::getCardsNumber() {
+qint64 Cards::getCardsNumber() const {
     return this->cards.length();
 }
