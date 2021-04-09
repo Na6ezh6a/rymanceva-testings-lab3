@@ -20,7 +20,7 @@ script:
   - ./tests/tests
 
 after_success:
-  - coveralls --root . -E ".*external.*" -E ".*tests.*"
+  - coveralls --root . -E ".*external.*" -E ".*tests.*" -E "main.cpp" -E "moc_cards.cpp" -E "moc_predefs.h" -E "qrc_qml.cpp"
   - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
   - sonar-scanner
 
