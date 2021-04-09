@@ -15,7 +15,10 @@ QMAKE_CFLAGS += -fprofile-arcs -ftest-coverage
 LIBS += -lgcov
 
 
-HEADERS +=
-SOURCES += main.cpp
+HEADERS += \
+    cards_test.h \
+    ../app/cards.h
+SOURCES += main.cpp \
+    ../app/cards.cpp
 
 INCLUDEPATH += ../app
