@@ -35,6 +35,8 @@ void Cards::addCard(QString mainText, QString backText) {
 
 // удаление карточки по номеру
 void Cards::removeCard(qint64 index) {
+    if(cards.length() == 0) return;
+
     if(index < 0 || index > this->cards.length() - 1) {
         // неправильный индекс
         // throw "кидает" ошибку, которую можно обработать при помощи catch
