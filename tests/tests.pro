@@ -4,7 +4,9 @@ TEMPLATE = app
 CONFIG += console
 CONFIG -= app_bundle
 CONFIG += thread
-CONFIG -= qt
+CONFIG += qt
+
+QT += core qml quick quickcontrols2
 
 QMAKE_CXXFLAGS += -Wall -Wextra -Werror -std=c++98
 QMAKE_CFLAGS += -Wall -Wextra -Werror
